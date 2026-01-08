@@ -103,12 +103,20 @@ class APIServer(TikTok):
     def setup_routes(self):
         @self.server.get(
             "/",
-            summary=_("访问项目 GitHub 仓库"),
-            description=_("重定向至项目 GitHub 仓库主页"),
+            summary=_("API 服务信息"),
+            description=_("返回 API 服务基本信息和文档链接"),
             tags=[_("项目")],
         )
         async def index():
-            return RedirectResponse(url=REPOSITORY)
+            return {
+                "name": "Douyin Video API",
+                "version": __VERSION__,
+                "description": "抖音视频无水印下载 API",
+                "docs": "/docs",
+                "redoc": "/redoc",
+                "github": REPOSITORY,
+                "status": "running"
+            }
 
         @self.server.get(
             "/token",
