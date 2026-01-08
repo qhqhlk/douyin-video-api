@@ -41,8 +41,8 @@ COPY start_api.py /app/start_api.py
 # 暴露端口
 EXPOSE 5555
 
-# 创建挂载点
-VOLUME /app/Volume
+# Railway 不支持 VOLUME 指令，如需持久化存储请使用 Railway Volumes
+# VOLUME /app/Volume
 
 # 设置容器启动命令（API 服务器模式）
 CMD ["python", "start_api.py"]
