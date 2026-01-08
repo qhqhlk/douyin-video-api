@@ -104,18 +104,14 @@ class APIServer(TikTok):
         @self.server.get(
             "/",
             summary=_("API 服务信息"),
-            description=_("返回 API 服务基本信息和文档链接"),
+            description=_("返回 API 服务基本信息"),
             tags=[_("项目")],
         )
         async def index():
             return {
-                "name": "Douyin Video API",
-                "version": __VERSION__,
-                "description": "抖音视频无水印下载 API",
-                "docs": "/docs",
-                "redoc": "/redoc",
-                "github": REPOSITORY,
-                "status": "running"
+                "service": "Video API",
+                "status": "running",
+                "docs": "/docs"
             }
 
         @self.server.get(
