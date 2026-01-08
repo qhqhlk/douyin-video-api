@@ -110,8 +110,7 @@ class APIServer(TikTok):
         async def index():
             return {
                 "service": "Video API",
-                "status": "running",
-                "docs": "/docs"
+                "status": "running"
             }
 
         @self.server.get(
